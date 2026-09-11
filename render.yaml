@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: quantum-quest-api
+    runtime: docker
+    plan: free
+    region: oregon
+    healthCheckPath: /api/health
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: ALLOWED_ORIGINS
+        value: https://quantum-quest-app.netlify.app,http://localhost:5173
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_CHAT_MODEL
+        value: gemini-2.5-flash
+      - key: GEMINI_EMBEDDING_MODEL
+        value: gemini-embedding-001
+      - key: SUPABASE_URL
+        value: https://uaoqujoqyglutdlgnuqy.supabase.co
+      - key: SUPABASE_SERVICE_KEY
+        sync: false
