@@ -1,0 +1,398 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #073b32;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    color: #f8fafc;
+  }
+}
+
+/* Paper and Scrapbook textures */
+.bg-graph-paper {
+  background-color: #faf7ed;
+  background-image: 
+    linear-gradient(to right, rgba(14, 116, 144, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 116, 144, 0.12) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.bg-dot-paper {
+  background-color: #faf7ed;
+  background-image: 
+    radial-gradient(rgba(120, 113, 108, 0.22) 1.5px, transparent 1.5px),
+    radial-gradient(rgba(120, 113, 108, 0.22) 1.5px, #faf7ed 1.5px);
+  background-size: 14px 14px;
+  background-position: 0 0, 7px 7px;
+}
+
+.bg-dot-paper-dark {
+  background-color: rgba(15, 23, 42, 0.85);
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px),
+    radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, rgba(15, 23, 42, 0.85) 1.5px);
+  background-size: 14px 14px;
+  background-position: 0 0, 7px 7px;
+}
+
+/* CRT monitor scanlines effect */
+.crt-scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.4) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.04),
+    rgba(0, 255, 0, 0.02),
+    rgba(0, 0, 255, 0.04)
+  );
+  background-size: 100% 3px, 6px 100%;
+}
+
+.crt-glow {
+  text-shadow: 0 0 8px rgba(74, 222, 128, 0.7), 0 0 16px rgba(74, 222, 128, 0.4);
+}
+
+/* Tape styling */
+.tape-shadow {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2), inset 0 0 2px rgba(255,255,255,0.6);
+}
+
+/* Torn / Rough paper border simulation */
+.torn-edge {
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.25));
+}
+
+/* Handwritten class helper */
+.font-hand {
+  font-family: 'Patrick Hand', 'Kalam', cursive, sans-serif;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(9, 76, 65, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: #115e51;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #197262;
+}
+
+/* Subtle float animation for hero specimen */
+@keyframes hero-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.4deg);
+  }
+}
+
+.animate-hero-float {
+  animation: hero-float 7s ease-in-out infinite;
+}
+
+/* Subtle quantum glow pulse */
+@keyframes quantum-glow {
+  0%, 100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.75;
+  }
+}
+
+.animate-quantum-glow {
+  animation: quantum-glow 5s ease-in-out infinite;
+}
+
+/* Authentic Paper Grain Effect */
+.paper-grain {
+  background-image: radial-gradient(rgba(0,0,0,0.05) 1px, transparent 0);
+  background-size: 4px 4px;
+}
+
+/* Torn paper edge */
+.torn-paper-bottom {
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% calc(100% - 10px),
+    98% 100%,
+    95% calc(100% - 6px),
+    92% 100%,
+    88% calc(100% - 8px),
+    85% 100%,
+    80% calc(100% - 5px),
+    77% 100%,
+    73% calc(100% - 7px),
+    70% 100%,
+    65% calc(100% - 4px),
+    61% 100%,
+    57% calc(100% - 8px),
+    53% 100%,
+    48% calc(100% - 5px),
+    44% 100%,
+    40% calc(100% - 7px),
+    36% 100%,
+    32% calc(100% - 4px),
+    28% 100%,
+    24% calc(100% - 8px),
+    20% 100%,
+    16% calc(100% - 5px),
+    12% 100%,
+    8% calc(100% - 7px),
+    4% 100%,
+    0% calc(100% - 6px)
+  );
+}
+
+/* Rubber stamp slammed down impact animation */
+@keyframes stamp-down {
+  0% {
+    opacity: 0;
+    transform: scale(3.5) rotate(-22deg);
+    filter: blur(3px);
+  }
+  45% {
+    opacity: 0.95;
+    transform: scale(0.93) rotate(-6deg);
+    filter: blur(0px);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.04) rotate(-7deg);
+  }
+  100% {
+    opacity: 0.95;
+    transform: scale(1) rotate(-6deg);
+  }
+}
+
+.animate-stamp {
+  animation: stamp-down 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.25s both;
+  transform-origin: center center;
+}
+
+/* Nova Mascot State Animations */
+@keyframes mascot-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(1deg);
+  }
+}
+
+@keyframes mascot-celebrate {
+  0%, 100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-6px) scale(1.05) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-2px) scale(1) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-5px) scale(1.04) rotate(3deg);
+  }
+}
+
+@keyframes mascot-speak {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04) translateY(-1px);
+  }
+}
+
+.animate-mascot-float {
+  animation: mascot-float 3s ease-in-out infinite;
+}
+
+.animate-mascot-celebrate {
+  animation: mascot-celebrate 1s ease-in-out infinite;
+}
+
+.animate-mascot-speak {
+  animation: mascot-speak 0.6s ease-in-out infinite;
+}
+
+/* Custom subtle scrollbar for Nova chat stream */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(217, 119, 6, 0.35);
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(217, 119, 6, 0.6);
+}
+
+/* ========================================================================= */
+/* UNIFIED DESIGN TOKENS & UTILITIES: Professional Learning Site Shell       */
+/* ========================================================================= */
+
+@layer components {
+  /* Tactile Parchment Card */
+  .paper-card {
+    background-color: #faf7ed;
+    border: 1.5px solid rgba(217, 119, 6, 0.28);
+    box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.45), 0 4px 10px -2px rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    position: relative;
+  }
+
+  .paper-card-lift {
+    background-color: #faf7ed;
+    border: 1.5px solid rgba(217, 119, 6, 0.35);
+    box-shadow: 0 22px 40px -5px rgba(0, 0, 0, 0.55), 0 10px 18px -4px rgba(0, 0, 0, 0.4);
+    border-radius: 1rem;
+    position: relative;
+  }
+
+  /* Dark Workbench Instrument Module */
+  .dark-workbench-card {
+    background-color: rgba(6, 44, 37, 0.92);
+    border: 1.5px solid rgba(52, 211, 153, 0.28);
+    box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    position: relative;
+    backdrop-filter: blur(8px);
+  }
+
+  /* Buttons: Tactile Emerald Primary */
+  .btn-primary-tactile {
+    background-color: #047857;
+    color: #faf7ed;
+    font-weight: 700;
+    border: 1.5px solid rgba(52, 211, 153, 0.5);
+    box-shadow: 0 6px 16px -2px rgba(4, 47, 39, 0.6), 0 2px 4px -1px rgba(0, 0, 0, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    user-select: none;
+  }
+  .btn-primary-tactile:hover {
+    background-color: #059669;
+    box-shadow: 0 10px 22px -3px rgba(4, 47, 39, 0.7), 0 4px 8px -2px rgba(0, 0, 0, 0.4);
+    transform: translateY(-1px);
+  }
+  .btn-primary-tactile:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 2px 6px rgba(4, 47, 39, 0.5);
+  }
+
+  /* Buttons: Tactile Amber / Parchment Secondary */
+  .btn-secondary-tactile {
+    background-color: #fef3c7;
+    color: #451a03;
+    font-weight: 700;
+    border: 1.5px solid #fcd34d;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    user-select: none;
+  }
+  .btn-secondary-tactile:hover {
+    background-color: #fde68a;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+  }
+  .btn-secondary-tactile:active {
+    transform: translateY(1px) scale(0.98);
+  }
+
+  /* Buttons: Ghost / Dark Precision Workbench */
+  .btn-ghost-tactile {
+    background-color: rgba(15, 23, 42, 0.75);
+    color: #e2e8f0;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .btn-ghost-tactile:hover {
+    background-color: rgba(30, 41, 59, 0.9);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.32);
+    transform: translateY(-1px);
+  }
+  .btn-ghost-tactile:active {
+    transform: translateY(1px) scale(0.98);
+  }
+
+  /* Pedagogical Callout Boxes */
+  .callout-intuition {
+    background-color: #fffbeb;
+    border-left: 4px solid #f59e0b;
+    border-radius: 0.75rem;
+    padding: 0.875rem 1rem;
+    color: #78350f;
+  }
+
+  .callout-math {
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-left: 4px solid #3b82f6;
+    border-radius: 0.75rem;
+    padding: 0.875rem 1rem;
+    color: #1e293b;
+  }
+
+  .callout-misconception {
+    background-color: #fef2f2;
+    border-left: 4px solid #ef4444;
+    border-radius: 0.75rem;
+    padding: 0.875rem 1rem;
+    color: #7f1d1d;
+  }
+
+  .callout-nova {
+    background-color: #ecfdf5;
+    border-left: 4px solid #10b981;
+    border-radius: 0.75rem;
+    padding: 0.875rem 1rem;
+    color: #064e3b;
+  }
+}
+
+/* Universal accessible focus outline */
+button:focus-visible, a:focus-visible, input:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+
+
